@@ -1,24 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+export function Example() {
+	// Declare a new state variable, which we'll call "count"
+	const [pay, setPay] = useState(800);
+	const [week, setWeek] = useState(1);
 
-//create your first component
-export function Home() {
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
+		<div className="payContainer text-center mt-5 text-monospace text-uppercase">
 			<p>
-				<img src={rigoImage} />
+				Week {week} your total pay was {pay} dollars.
 			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+			<button
+				class="btn btn-danger"
+				onClick={() => {
+					setPay(pay + 800);
+					setWeek(week + 1);
+				}}>
+				Click me
+			</button>
 		</div>
 	);
 }
